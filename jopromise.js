@@ -28,35 +28,3 @@ img1.addEventListener('error', function() {
 });
 
 
-//events-ready
-
-img1.callThisIfLoadedOrWhenLoaded(function() {
-    // loaded
-  }).orIfFailedCallThis(function() {
-    // failed
-  });
-  
-  // and…
-  whenAllTheseHaveLoaded([img1, img2]).callThis(function() {
-    // all loaded
-  }).orIfSomeFailedCallThis(function() {
-    // one or more failed
-  });
-
-
-
-  
-img1.ready()
-.then(function() {
-  // loaded
-}, function() {
-  // failed
-});
-
-// and…
-Promise.all([img1.ready(), img2.ready()])
-.then(function() {
-  // all loaded
-}, function() {
-  // one or more failed
-});
