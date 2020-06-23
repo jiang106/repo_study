@@ -81,3 +81,34 @@ function get(url) {
   });
 }
 
+
+// .then()
+
+function getNumber(){
+      var promise = new Promise(function(resolve, reject){
+          //异步操作
+          setTimeout(function(){
+              var num = Math.ceil(Math.random()*10); //生成1-10的随机数
+              if(num<=5){
+                  resolve(num);
+              }
+              else{
+                  reject('数字大了');
+              }
+          }, 2000);
+      });
+      return promise;            
+  }
+   
+  getNumber()
+  .then(
+      function(data){
+          console.log('resolved');
+          console.log(data);
+      },
+      function(reason, data){
+          console.log('rejected');
+          console.log(reason);
+      }
+  );
+  
